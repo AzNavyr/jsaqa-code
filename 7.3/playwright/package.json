@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "playwright"
+    "test:jest": "jest",
+    "test": "npx playwright test",
+    "codegen": "playwright codegen"
   },
-  "author": "",
+  "keywords": [
+    "test",
+    "playwright"
+  ],
+  "author": "Aznavyr",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.12.3",
+    "@playwright/test": "^1.29.0",
     "playwright": "^1.12.3"
   }
 }
