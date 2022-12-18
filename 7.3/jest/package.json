@@ -4,16 +4,40 @@
   "description": "jest test",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "testCoverage": "jest --collectCoverage",
+    "testReport": "jest --coverageReporters"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/coverage/**",
+      "!**/.vscode/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    },
+    "coverageReporters": [
+      "html",
+      "text-summary"
+    ]
   },
   "keywords": [
     "jest",
     "test",
     "jsaqa"
   ],
-  "author": "omelnikova",
+  "author": "Aznavyr",
   "license": "ISC",
   "devDependencies": {
     "jest": "^27.3.1"
+  },
+  "dependencies": {
+    "eslint": "^8.30.0"
   }
 }
