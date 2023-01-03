@@ -1,13 +1,16 @@
 let page;
 
+beforeEach(async () => {
+  jest.setTimeout(15000);
+  page = await browser.newPage();
+});
+
 afterEach(async () => {
   await page.close();
 });
 
 describe("Github page tests", () => {
   beforeEach(async () => {
-    jest.setTimeout(15000);
-    page = await browser.newPage();
     await page.goto("https://github.com/team");
   });
 
@@ -17,7 +20,9 @@ describe("Github page tests", () => {
     await firstLink.click();
     await page.waitForSelector("h1");
     const title2 = await page.title();
-    expect(title2).toEqual("GitHub: Let’s build from here · GitHub");
+    expect(title2).toEqual(
+      "GitHub for teams · Build like the best teams on the planet · GitHub"
+    );
   });
   test("The first link attribute", async () => {
     await page.setDefaultTimeout(2000);
@@ -37,12 +42,11 @@ describe("Github page tests", () => {
 
 describe("Securuty Page", () => {
   beforeEach(async () => {
-    jest.setTimeout(15000);
-    page = await browser.newPage();
+    jest.setTimeout(25000);
     await page.goto("https://github.com/features/security");
   });
 
-  test.only("Text of Header Buttom", async () => {
+  test("Text of Header Buttom", async () => {
     const headerElement = await page.$(
       "div.sub-nav-mktg.js-toggler-container.js-sticky.js-position-sticky.top-0.width-full.z-3 > div > a"
     );
