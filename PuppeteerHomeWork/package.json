@@ -27,8 +27,8 @@
     "eslint": "^8.31.0",
     "node-fetch": "^2.6.7",
     "chai": "^4.3.6",
-    "jest": "^28.1.0",
+    "jest": "^27.5.1",
     "jest-puppeteer": "^6.1.0",
-    "puppeteer": "^13.7.0"
+    "puppeteer": "^13.3.2"
   }
 }

@@ -7,14 +7,12 @@ module.exports = {
             throw new Error("Choice of day is failed");
         }
     },
+
     chooseTimeAndFilm: async function (page, film, time) {
         try {
-            // для того, чтобы кликнуть на 12:00 Фильма 3, а не какого-то другого фильма:
-            // 1. мы находим прародителя, у которого есть "внук" Фильм 3
-            // 2. затем у этого прародителя ищем элемент 12:00
-            // Таким образом, находим 12:00 именно Фильма 3
+
             const [parentElementThatHaveChildElementWithSpesialName] = await page.$x(
-                `//section[./div[./div[./h2[contains(text(), ${film})]]]]`
+                `//section[./div[./div[./h2[contains(text(), ${film})]`
             );
             const [timeElement] =
                 await parentElementThatHaveChildElementWithSpesialName.$x(
@@ -34,7 +32,7 @@ module.exports = {
     ) {
         try {
             // тот ли фильм?
-            await page.waitForSelector("h2", {timeout: 30000});
+            await page.waitForSelector("h2", { timeout: 30000 });
             const chosenFilm = "div.buying__info > div > h2";
             const chosenFilmText = await page.$eval(
                 chosenFilm,
@@ -118,7 +116,7 @@ module.exports = {
 
     showCode: async function (page) {
         try {
-            await page.waitForSelector(".acceptin-button", {timeout: 60000});
+            await page.waitForSelector(".acceptin-button", { timeout: 60000 });
             const [codeButton] = await page.$x(
                 '//button[contains(text(),"Получить код бронирования")]'
             );
@@ -131,9 +129,9 @@ module.exports = {
 
     codeIsVisible: async function (page) {
         try {
-            await page.waitForSelector(".ticket__info-qr", {timeout: 60000});
+            await page.waitForSelector(".ticket__info-qr", { timeout: 60000 });
         } catch (error) {
             throw new Error("Code can not be shown");
         }
     },
-}
+};
