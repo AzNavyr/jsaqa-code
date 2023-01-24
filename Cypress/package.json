@@ -4,7 +4,12 @@
   "description": "e2e test on Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "cypress open"
+    "test": "cypress open",
+    "cy:headless": "cypress run --browser chrome",
+    "cy:chrome": "cypress run --headed --browser chrome --config viewportWidth=1280,viewportHeight=720",
+    "cy:firefox": "cypress run --headed --browser firefox",
+    "cy:edge": "cypress run --headed --browser edge",
+    "cy:electron": "cypress run --headed --browser electron"
   },
   "keywords": [
     "cypress"
