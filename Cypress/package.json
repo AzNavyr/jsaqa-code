@@ -1,0 +1,17 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "e2e test on Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "keywords": [
+    "cypress"
+  ],
+  "author": "Aznavyr",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.3.0"
+  }
+}
